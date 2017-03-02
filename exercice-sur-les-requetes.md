@@ -1,41 +1,69 @@
 # Exemples de requetes
 
+# Exemples de requetes
+
 ## Afficher l'utilisateur dont l'adresse email est : robert@gmail.com
 
-> SELECT * FROM users WHERE email="robert@gmail.com"
+Select *
+From users
+WHERE email="robert@gmail.com"
 
-## Afficher l'utilisateur dont le token est : 1151322064
+## Afficher l'utilisateur dont le token est : 1318937061
 
-> SELECT * FROM users WHERE token="1151322064"
+Select *
+From users
+WHERE token="1318937061"
 
 ## Afficher les fonctions appartenant au developpeur : Bob
 
-> SELECT title,code FROM users,functions WHERE users.id = functions.user_id AND full_name="Bob"
+Select title,code
+From users,functions
+WHERE users.id=functions.user_id
+AND full_name="Bob"
 
 ## Afficher les fonctions appartenant au developpeur : Robert H.
 
-> SELECT title,code FROM users,functions WHERE users.id = functions.user_id AND full_name="Robert H."
+Select title,code
+From users,functions
+WHERE users.id=functions.user_id
+AND full_name="Robert H."
 
 ## Afficher toutes les fonctions dont le code commence par : return
 
-> SELECT * FROM functions WHERE code LIKE "return%"
+Select title,code
+From functions
+WHERE code="return"
+
 
 ## Afficher toutes les utilisateurs dont le nom commence par : Ro
 
-> SELECT * FROM users WHERE full_name LIKE "Ro%"
+Select *
+From users
+WHERE full_name LIKE "Ro%"
 
 ## Afficher la fonction dont le nom se termine par : 1
 
-> SELECT * FROM functions WHERE title LIKE "%1"
+Select *
+From functions
+WHERE title LIKE "%1"
 
 ## Afficher toutes les instances de la fonction : SHA1
 
-> SELECT * FROM instances, functions WHERE instances.id = functions.instance_id AND title="SHA1"
+Select *
+From instances,functions
+WHERE instances.function_id=functions.id
+and title="SHA1"
+
 
 ## Afficher toutes les factures de Bob.
 
-> SELECT * FROM users,invoices WHERE users.id = invoices.user_id AND full_name="Bob"
+Select *
+From users,invoices
+Where users.id=invoices.user_id
+And Full_name="Bob"
 
 ## Afficher toutes les factures et les classer par montant
 
-> SELECT * FROM invoices Order by amount
+Select *
+from invoices
+Order by amount
