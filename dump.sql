@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 24 Janvier 2017 à 23:04
+-- Généré le :  Dim 30 Avril 2017 à 21:58
 -- Version du serveur :  5.5.42
 -- Version de PHP :  7.0.0
 
@@ -25,7 +25,7 @@ CREATE TABLE `functions` (
   `title` varchar(255) NOT NULL,
   `code` text NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `functions`
@@ -33,8 +33,11 @@ CREATE TABLE `functions` (
 
 INSERT INTO `functions` (`id`, `title`, `code`, `user_id`) VALUES
 (1, 'The answer to life, the universe and everything', 'return 42;', 1),
-(2, 'Add', '$integer1 = intval($params[0]);\r\n$integer2 = intval($params[1]);\r\n\r\nreturn $integer1 + integer2;', 1),
-(3, 'SHA1', 'return sha1($params[0]);', 1);
+(2, 'Additionner deux chiffres', '$integer1 = intval($_GET["chiffre1"]);\r\n$integer2 = intval($_GET["chiffre2"]);\r\n\r\nreturn $integer1 + $integer2;', 2),
+(3, 'SHA1 d''une valeur', 'return sha1($_GET[''valeur'']);', 2),
+(4, 'Message en HTML', 'return "<h1>Bonjour, " . $_GET[''name''] . "</h1>";', 2),
+(5, 'Prix d''un bitcoin en dollar', '// Adresse de l''API de Poloniex (banque de bitcoins) :\r\n$url = "https://poloniex.com/public?command=returnTicker";\r\n\r\n// TÃ©lÃ©chargement du cours des valeurs des monnaies virtuelles :\r\n$json = file_get_contents($url);\r\n\r\n// Transformation du format JSON vers un tableau de correspondance en PHP :\r\n$data = json_decode($json, TRUE);\r\n\r\n// Affichage de la valeur actuelle d''un bitcoin (en dollars) :\r\nreturn $data["USDT_BTC"]["last"];', 2),
+(6, 'Suite de Fibonacci', '// A propos :\r\n// https://fr.wikipedia.org/wiki/Suite_de_Fibonacci\r\n\r\nreturn round(pow((sqrt(5)+1)/2, $_GET[''n'']) / sqrt(5));', 2);
 
 -- --------------------------------------------------------
 
@@ -85,7 +88,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `token`, `full_name`) VALUES
 (1, 'robert@gmail.com', 'secret', 'secret1', 'Robert H.'),
-(2, 'bob@gmail.com', 'secret', '1318937061', 'Bob');
+(2, 'bob@gmail.com', 'secret', '1351361603', 'Bob');
 
 --
 -- Index pour les tables exportées
@@ -133,7 +136,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `functions`
 --
 ALTER TABLE `functions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `invoices`
 --
