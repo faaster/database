@@ -105,6 +105,7 @@ ALTER TABLE `functions`
 -- Index pour la table `instances`
 --
 ALTER TABLE `instances`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `function_id` (`function_id`);
 
 --
