@@ -149,6 +149,12 @@ ALTER TABLE `invoices`
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT pour la table `instances`
+--
+ALTER TABLE `instances`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Contraintes pour les tables exportées
 --
 
